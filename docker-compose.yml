@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=labmanpassword
+      - POSTGRES_USER=labman
+      - POSTGRES_DB=labman_db
+  web:
+    image: memaldi/labman
+    command: bash -c "while ! nc -w 1 -z db 5432; do sleep 0.1; done; ./entrypoint.sh"
+    environment:
+      - DB_ENV_POSTGRES_PASSWORD=labmanpassword
+      - DB_ENV_POSTGRES_USER=labman
+      - DB_ENV_POSTGRES_DB=labman_db
+    volumes:
+      - /tmp/collected_static:/src/labman_ud/collected_static
+    depends_on:
+      - db
+  nginx:
+    image: memaldi/labman-nginx
+    ports: 
+      - "80:80"
+    volumes_from:
+      - web
+    depends_on:
+      - web
