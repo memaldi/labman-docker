@@ -16,7 +16,7 @@ DATABASES = {
         'NAME': os.getenv('DB_ENV_POSTGRES_DB', os.getenv('DB_ENV_POSTGRES_USER', 'postgres')),
         'USER': os.getenv('DB_ENV_POSTGRES_USER', 'postgres'),
         'PASSWORD': os.getenv('DB_ENV_POSTGRES_PASSWORD'),
-        'HOST': 'db',
+        'HOST': os.getenv('DB_ENV_POSTGRES_HOST', 'db'),
         'PORT': 5432,
     },
 }
