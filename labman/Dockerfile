@@ -16,6 +16,6 @@ RUN cp /src/labman_ud/labman_ud/settings/base.py.dist /src/labman_ud/labman_ud/s
 
 COPY entrypoint.sh entrypoint.sh
 
-VOLUME /src/collected_static
+VOLUME /src/labman_ud/collected_static
 
 CMD ["./entrypoint.sh"]
