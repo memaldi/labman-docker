@@ -1,0 +1,9 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t memaldi/labman-nginx nginx/
+  - docker build -t memaldi/labman labman/
+  - docker-compose up
