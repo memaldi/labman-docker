@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: web
+  labels:
+    name: web
+spec:
+  replicas: 1
+  selector:
+    name: web
+  template:
+    metadata:
+      labels:
+        name: web
+    spec:
+      containers:
+      - name: web
+        image: memaldi/labman
+        env:
+          - name: DB_ENV_POSTGRES_PASSWORD
+            value: labmanpassword
+          - name: DB_ENV_POSTGRES_USER
+            value: labman
+          - name: DB_ENV_POSTGRES_DB
+            value: labman_db
+          - name: DB_ENV_POSTGRES_HOST
+            value: database
+          - name: LABMAN_DEBUG
+            value: "True"
+        ports:
+          - containerPort: 8000
