@@ -103,7 +103,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.StreamHandler',
-            'maxBytes': 1024 * 1024,    # 1 MB
+            'formatter': 'compact',
         },
         'mail_admins': {
             'level': 'ERROR',
