@@ -103,7 +103,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/labman.log',
+            'filename': 'labman.log',
             'maxBytes': 1024 * 1024,    # 1 MB
         },
         'mail_admins': {
