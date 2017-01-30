@@ -7,9 +7,6 @@ script:
   - docker build -t memaldi/labman-nginx nginx/
   - docker build -t memaldi/labman labman/
   - docker-compose up -d
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push memaldi/labman-nginx
-  - docker push memaldi/labman
 
 after_success:
 - if [ "$TRAVIS_BRANCH" == "master" ]; then

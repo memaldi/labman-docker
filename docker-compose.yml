@@ -15,7 +15,7 @@ services:
       - DB_ENV_POSTGRES_USER=labman
       - DB_ENV_POSTGRES_DB=labman_db
     volumes:
-      - /src/labman_ud/collected_static
+      - /tmp/collected_static
     depends_on:
       - db
   nginx:

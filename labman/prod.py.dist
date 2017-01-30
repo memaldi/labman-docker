@@ -46,7 +46,7 @@ USE_X_FORWARDED_HOST = False
 
 MEDIA_ROOT = ''
 
-STATIC_ROOT = PROJECT_DIR.child('collected_static')
+STATIC_ROOT = '/tmp/collected_static'
 
 STATIC_URL = '/static/'
 
