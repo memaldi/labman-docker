@@ -4,6 +4,12 @@ RUN apt-get update && apt-get install -y netcat git
 
 RUN mkdir /src
 
+RUN useradd -c 'labman user' -m -d /home/labman -s /bin/bash labman
+
+RUN chown -R labman:labman /src
+
+USER labman
+
 RUN git clone https://github.com/memaldi/labman_ud /src
 
 WORKDIR /src/
