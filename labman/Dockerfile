@@ -4,23 +4,25 @@ RUN apt-get update && apt-get install -y netcat git
 
 RUN mkdir /src
 
-RUN useradd -c 'labman user' -m -d /home/labman -s /bin/bash labman
-
-RUN chown -R labman:labman /src
-
-USER labman
-
 RUN git clone https://github.com/memaldi/labman_ud /src
 
 WORKDIR /src/
 
 RUN pip install -r requirements.txt
 
+RUN useradd -c 'labman user' -m -d /home/labman -s /bin/bash labman
+
+RUN chown -R labman:labman /src
+
+USER labman
+
 COPY prod.py.dist /src/labman_ud/labman_ud/settings/prod.py
 
 RUN cp /src/labman_ud/labman_ud/settings/base.py.dist /src/labman_ud/labman_ud/settings/base.py
 
 COPY entrypoint.sh entrypoint.sh
+
+RUN mkdir /src/labman_ud/collected_static
 
 VOLUME /src/labman_ud/collected_static
 
