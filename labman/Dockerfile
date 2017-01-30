@@ -18,6 +18,8 @@ COPY entrypoint.sh entrypoint.sh
 
 RUN mkdir /tmp/collected_static
 
+RUN chmod a+w /tmp/collected_static
+
 VOLUME /tmp/collected_static
 
 CMD ["./entrypoint.sh"]
