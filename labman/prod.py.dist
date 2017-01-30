@@ -102,9 +102,8 @@ LOGGING = {
         },
         'file': {
             'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/labman.log',
-            'maxBytes': 1024 * 1024,    # 1 MB
+            'class': 'logging.StreamHandler',
+            'formatter': 'compact',
         },
         'mail_admins': {
             'level': 'ERROR',
